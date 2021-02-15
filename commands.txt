@@ -6,5 +6,4 @@ docker run -p 6366:8080 premsaikouru/pipeline
 
 http://localhost:6366
 
-Issue:cannot run program - nohup
-      https://stackoverflow.com/questions/45140614/jenkins-pipeline-sh-fail-with-cannot-run-program-nohup-on-windows
+
