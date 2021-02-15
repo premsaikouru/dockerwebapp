@@ -1,9 +1,10 @@
-docker build -t premsaikouru/pipeline .
+docker build -t premsaikouru/dockerwebapp .
 
 docker images
 
-docker run -p 6366:8080 premsaikouru/pipeline
+docker run -p 49160:8080 premsaikouru/dockerwebapp
 
-http://localhost:6366
+http://localhost:49160
 
-
+Issue: Cannot run program - nohup
+        https://stackoverflow.com/questions/45140614/jenkins-pipeline-sh-fail-with-canot-run-program-nohup-on-windows
