@@ -1,9 +1,30 @@
-node {
-    checkout scm 
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-        def customImage = docker.build("premsaikouru/dockerwebapp")
-        
-        customImage.push()
-    }    
-
+pipeline {
+    agent any 
+    stages {
+        stage('Build satge') { 
+            steps { 
+                wihtMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn clean compile'
+                }
+                 
+            }
+        }
+        stage('Testing stage') { 
+            steps { 
+                withMaven(mave : 'maven_3_5_0') {
+                    
+                    sh 'mvn test'
+                }
+                 
+            }
+        }
+        stage('Deploymnet stage') { 
+            steps { 
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'maven deploy'
+                }
+                 
+            }
+        }
+    }
 }
